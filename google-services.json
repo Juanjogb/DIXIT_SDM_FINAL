@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1098864209828",
+    "firebase_url": "https://dixit-sdm.firebaseio.com",
+    "project_id": "dixit-sdm",
+    "storage_bucket": "dixit-sdm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1098864209828:android:030c85af12e90289",
+        "android_client_info": {
+          "package_name": "trabajo.sdm.dixit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1098864209828-9e0ivbcrsjs4qmt2ddus393eqjdjnecp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKnCHCL8Tqx4WBgNMCVhYEER2ncbhk_cQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

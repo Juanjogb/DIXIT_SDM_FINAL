@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Dixit</string>
+    <string name="main_bPlayer">Un jugador</string>
+    <string name="main_bOnline">Multijugador</string>
+    <string name="main_bScores">Puntuaciones</string>
+    <string name="main_bRules">Reglas</string>
+    <string name="main_bCards">Cartas</string>
+    <string name="settings_title">Configuración</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Contraseña</string>
+    <string name="login_goRegister">Crear una cuenta</string>
+    <string name="login_login">Iniciar sesión</string>
+    <string name="login_empty">Rellena los campos</string>
+    <string name="login_auto">Iniciando sesión...</string>
+    <string name="register_title">Registro</string>
+    <string name="rules_title">Reglas</string>
+    <string name="settings_username">Usuario</string>
+    <string name="settings_email">Email</string>
+    <string name="cards_title">Cartas</string>
+    <string name="settings_save">Guardar cambios</string>
+    <string name="settings_password">Contraseña</string>
+    <string name="settings_changeAvatar">Cambiar</string>
+    <string name="unknown_error">Error desconocido. Comprueba tu conexión a internet.</string>
+    <string name="settings_saving">Guardando cambios...</string>
+</resources>
