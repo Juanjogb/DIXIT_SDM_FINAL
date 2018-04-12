@@ -22,4 +22,11 @@
     <string name="settings_changeAvatar">Cambiar</string>
     <string name="unknown_error">Error desconocido. Comprueba tu conexión a internet.</string>
     <string name="settings_saving">Guardando cambios...</string>
+    <string name="register_register">Registrar</string>
+    <string name="register_password">Contraseña</string>
+    <string name="register_email">Email</string>
+    <string name="register_username">Nombre</string>
+    <string name="register_selectAvatar">Seleccionar avatar</string>
+    <string name="register_saving">Registrando usuario</string>
+    <string name="register_empty">Faltan campos</string>
 </resources>

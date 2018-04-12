@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import dixit.sdm.trabajo.dixit.R;
-import dixit.sdm.trabajo.dixit.helpers.saveChangesTask;
+import dixit.sdm.trabajo.dixit.helpers.SaveChangesTask;
 
 import static dixit.sdm.trabajo.dixit.helpers.Const.BASE_URL;
 
@@ -77,7 +77,7 @@ public class SettingsActivity extends AppCompatActivity {
         arPassword = password.getText().toString();
         arAvatar = avatarToSave;
         urlBuild = "saveChanges.php?email=" + saved_email + "&ticket=" + prefs.getString("ticket", "") + "&username=" + arUsername + "&password=" + arPassword + "&avatar=" + avatarToSave;
-        new saveChangesTask(this).execute(new String[]{"GET", BASE_URL + urlBuild});
+        new SaveChangesTask(this).execute(new String[]{"GET", BASE_URL + urlBuild});
 
     }
 }

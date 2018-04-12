@@ -13,7 +13,7 @@ import android.widget.Toast;
 import dixit.sdm.trabajo.dixit.R;
 import dixit.sdm.trabajo.dixit.helpers.LoginTask;
 import dixit.sdm.trabajo.dixit.helpers.SHA1;
-import dixit.sdm.trabajo.dixit.helpers.checkTicketTask;
+import dixit.sdm.trabajo.dixit.helpers.CheckTicketTask;
 
 import static dixit.sdm.trabajo.dixit.helpers.Const.BASE_URL;
 
@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
             progressDialog.setMessage(getString(R.string.login_auto));
             progressDialog.show();
             try {
-                new checkTicketTask(this).execute(new String[]{"GET", BASE_URL + "checkTicket.php?email=" + tmp_email + "&ticket=" + tmp_ticket});
+                new CheckTicketTask(this).execute(new String[]{"GET", BASE_URL + "checkTicket.php?email=" + tmp_email + "&ticket=" + tmp_ticket});
             } catch (Exception e) {
                 e.printStackTrace();
             }

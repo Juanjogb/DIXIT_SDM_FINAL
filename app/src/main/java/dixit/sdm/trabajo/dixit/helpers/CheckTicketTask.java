@@ -11,13 +11,12 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import dixit.sdm.trabajo.dixit.activities.LoginActivity;
-import dixit.sdm.trabajo.dixit.activities.SettingsActivity;
 
-public class saveChangesTask extends AsyncTask<String[], Void, String> {
+public class CheckTicketTask extends AsyncTask<String[], Void, String> {
 
-    private WeakReference<SettingsActivity> activity;
+    private WeakReference<LoginActivity> activity;
 
-    public saveChangesTask(SettingsActivity activity) {
+    public CheckTicketTask(LoginActivity activity) {
         this.activity = new WeakReference<>(activity);
     }
 
@@ -32,7 +31,7 @@ public class saveChangesTask extends AsyncTask<String[], Void, String> {
             urlConnection.setRequestMethod(params[0][0]);
             try {
                 //Esperamos 2 segundos para que haga buen efecto de iniciando sesión. Si no, es un fogonazo!
-                Thread.sleep(1500);
+                Thread.sleep(1);
                 return readStream(urlConnection.getInputStream());
             } catch (InterruptedException ex) {
                 Thread.currentThread().interrupt();

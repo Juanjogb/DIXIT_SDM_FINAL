@@ -10,13 +10,14 @@ import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import dixit.sdm.trabajo.dixit.activities.LoginActivity;
+import dixit.sdm.trabajo.dixit.activities.RegisterActivity;
 
-public class checkTicketTask extends AsyncTask<String[], Void, String> {
+public class RegisterTask extends AsyncTask<String[], Void, String> {
 
-    private WeakReference<LoginActivity> activity;
 
-    public checkTicketTask(LoginActivity activity) {
+    private WeakReference<RegisterActivity> activity;
+
+    public RegisterTask(RegisterActivity activity) {
         this.activity = new WeakReference<>(activity);
     }
 
@@ -29,17 +30,10 @@ public class checkTicketTask extends AsyncTask<String[], Void, String> {
             urlConnection.setDoOutput(true);
             urlConnection.setConnectTimeout(5000);
             urlConnection.setRequestMethod(params[0][0]);
-            try {
-                //Esperamos 2 segundos para que haga buen efecto de iniciando sesión. Si no, es un fogonazo!
-                Thread.sleep(1);
-                return readStream(urlConnection.getInputStream());
-            } catch (InterruptedException ex) {
-                Thread.currentThread().interrupt();
-            }
+            return readStream(urlConnection.getInputStream());
         } catch (IOException e) {
             return e.getMessage();
         }
-        return "";
     }
 
     @Override
