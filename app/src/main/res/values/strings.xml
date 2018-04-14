@@ -29,4 +29,5 @@
     <string name="register_selectAvatar">Seleccionar avatar</string>
     <string name="register_saving">Registrando usuario</string>
     <string name="register_empty">Faltan campos</string>
+    <string name="register_auto">Registrando usuario ...</string>
 </resources>

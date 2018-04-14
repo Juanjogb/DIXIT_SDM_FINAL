@@ -38,11 +38,14 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         get_email = findViewById(R.id.login_email);
         get_password = findViewById(R.id.login_password);
+
         progressDialog = new ProgressDialog(this);
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         editor = prefs.edit();
+
         //Si tenemos algun par usuario/ticket en shared preferences validamos en segundo plano
         //y redirigimos al main activity
         tmp_email = prefs.getString("email", null);
@@ -92,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void goLogin(View view) {
         email = get_email.getText().toString();
-        password = (get_password.getText().toString());
+        password = get_password.getText().toString();
         if (email.matches("") || password.matches("")) {
             Toast.makeText(this, getString(R.string.login_empty), Toast.LENGTH_SHORT).show();
         } else {

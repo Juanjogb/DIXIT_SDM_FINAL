@@ -25,7 +25,8 @@
         <activity android:name=".activities.PlayerActivity" />
         <activity android:name=".activities.OnlineActivity" />
         <activity android:name=".activities.RulesActivity" />
-        <activity android:name=".activities.AvatarActivity"></activity>
+        <activity android:name=".activities.AvatarActivity"/>
+        <activity android:name=".activities.AvatarActivityRegister"/>
     </application>
 
 </manifest>

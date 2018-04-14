@@ -64,32 +64,65 @@ public class RegisterActivity extends AppCompatActivity {
         tmp_avatar = prefs.getString("avatar","1");
 
         progressDialog = new ProgressDialog(this);
+
+        Bundle b = getIntent().getExtras();
+        if (b != null) {
+            get_username.setText(tmp_username);
+            get_email.setText(tmp_email);
+            get_password.setText(tmp_password);
+            avatar = b.getString("avatar");
+            get_avatar.setImageResource(getResources().getIdentifier("ava" + avatar, "drawable", getPackageName()));
+        } else {
+            get_avatar.setImageResource(getResources().getIdentifier("ava" + tmp_avatar, "drawable", getPackageName()));
+        }
     }
 
-    public void registerUser(View view) {
+    public void selectAvatar(View view) {
+        username = get_username.getText().toString();
+        email = get_email.getText().toString();
+        password = get_password.getText().toString();
+        editor.putString("username",username);
+        editor.putString("email",email);
+        editor.putString("password",password);
+        editor.apply();
+        startActivity(new Intent(this, AvatarActivityRegister.class));
+        finish();
+    }
+
+    public void processFinish(String output) {
+
+        progressDialog.dismiss();
+        if (output.indexOf("Error") == -1) {
+            //Registro correcto, pasamos a la main activity
+            Intent i = new Intent(this, MainActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(i);
+            finish();
+        }
+        else {
+            Toast.makeText(this, output, Toast.LENGTH_SHORT).show();
+            editor.remove("email");
+            editor.remove("ticket");
+            editor.apply();
+        }
+    }
+
+    public void registerUser(View v) {
         
         username = get_username.getText().toString();
         email = get_email.getText().toString();
-        password = (get_password.getText().toString());
+        password = get_password.getText().toString();
         avatar = "1";//falta seleccionar el avatar
         if (email.matches("") || password.matches("")) {
             Toast.makeText(this, getString(R.string.register_empty), Toast.LENGTH_SHORT).show();
         } else {
             try {
-                progressDialog.setMessage(getString(R.string.login_auto));
+                progressDialog.setMessage(getString(R.string.register_auto));
                 progressDialog.show();
                 new RegisterTask(this).execute(new String[]{"GET", BASE_URL + "register.php?username="+ username +  "&email=" + email + "&password=" + (new SHA1()).SHA1(password)+ "&avatar" + avatar});
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-    }
-
-    public void selectAvatar(View view) {
-        startActivity(new Intent(this, AvatarActivity.class));
-
-    }
-
-    public void processFinish(String a) {
     }
 }
