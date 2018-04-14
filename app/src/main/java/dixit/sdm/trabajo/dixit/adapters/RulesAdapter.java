@@ -7,12 +7,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import dixit.sdm.trabajo.dixit.R;
+import uk.co.senab.photoview.PhotoViewAttacher;
 
 public class RulesAdapter extends PagerAdapter {
 
     private Context mContext;
     private int[] mImageIds = new int[]{R.drawable.rules1, R.drawable.rules2};
-
+    PhotoViewAttacher photoViewAttacher;
 
     public RulesAdapter(Context context) {
         mContext = context;
@@ -24,15 +25,17 @@ public class RulesAdapter extends PagerAdapter {
     }
 
     @Override
-    public boolean isViewFromObject(View view, Object object) {
-        return view == object;
+    public boolean isViewFromObject(View v, Object o) {
+        return v == o;
     }
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         ImageView imageView = new ImageView(mContext);
-        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+        //imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setImageResource(mImageIds[position]);
+        photoViewAttacher = new PhotoViewAttacher(imageView);
         container.addView(imageView, 0);
         return imageView;
     }
