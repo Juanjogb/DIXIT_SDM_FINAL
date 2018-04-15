@@ -6,12 +6,12 @@ import android.widget.TabHost;
 
 import dixit.sdm.trabajo.dixit.R;
 
-public class GameActivity extends AppCompatActivity {
+public class ScoresActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
+        setContentView(R.layout.activity_scores);
 
         //Tabs Control
         TabHost host = (TabHost) findViewById(R.id.my_tabhost);
