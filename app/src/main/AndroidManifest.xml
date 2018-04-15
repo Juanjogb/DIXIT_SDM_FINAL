@@ -12,22 +12,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
-        <activity android:name=".activities.MainActivity" />
-        <activity android:name=".activities.SettingsActivity" />
-        <activity android:name=".activities.LoginActivity">
+        <activity android:name=".activities.MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.SettingsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.LoginActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.RegisterActivity" />
-        <activity android:name=".activities.CardsActivity" />
-        <activity android:name=".activities.PlayActivity" />
-        <activity android:name=".activities.GameActivity" />
-        <activity android:name=".activities.RulesActivity" />
-        <activity android:name=".activities.AvatarActivity"/>
-        <activity android:name=".activities.AvatarActivityRegister"/>
+        <activity android:name=".activities.RegisterActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.CardsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.PlayActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.GameActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.RulesActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.AvatarActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.AvatarActivityRegister"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

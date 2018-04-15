@@ -3,10 +3,12 @@ package dixit.sdm.trabajo.dixit.activities;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -26,6 +28,8 @@ public class SettingsActivity extends AppCompatActivity {
     private EditText username;
     private EditText password;
     private ImageButton avatar;
+    private TextView cambiar;
+    private Button save;
     private String avatarToSave;
     private ProgressDialog progressDialog;
     private SharedPreferences prefs;
@@ -44,6 +48,15 @@ public class SettingsActivity extends AppCompatActivity {
         username = findViewById(R.id.settings_username);
         password = findViewById(R.id.settings_password);
         avatar = findViewById(R.id.settings_avatar);
+        cambiar = findViewById(R.id.textView2);
+        save = findViewById(R.id.settings_save);
+
+        Typeface face = Typeface.createFromAsset(getAssets(),"greco.ttf");
+        email.setTypeface(face);
+        username.setTypeface(face);
+        password.setTypeface(face);
+        cambiar.setTypeface(face);
+        save.setTypeface(face);
 
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         editor = prefs.edit();

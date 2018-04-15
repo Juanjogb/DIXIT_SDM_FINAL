@@ -56,6 +56,7 @@ public class PlayActivity extends AppCompatActivity {
                 i.setClass(this, GameActivity.class);
                 break;
         }
+        startActivity(i);
     }
 
     private void crearPartida(String s) {
