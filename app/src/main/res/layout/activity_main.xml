@@ -29,32 +29,15 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="80dp"
         android:background="@android:color/transparent"
         android:onClick="doAction"
-        android:text="@string/main_bPlayer"
+        android:text="@string/main_bPlay"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
-    <Button
-        android:id="@+id/bOnline"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@android:color/transparent"
-        android:onClick="doAction"
-        android:text="@string/main_bOnline"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bPlayer" />
 
     <Button
         android:id="@+id/bScores"
@@ -64,7 +47,6 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-
         android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
         android:onClick="doAction"
@@ -72,7 +54,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bOnline" />
+        app:layout_constraintTop_toBottomOf="@+id/bPlayer" />
 
     <Button
         android:id="@+id/bRules"
@@ -81,7 +63,6 @@
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:background="@android:color/transparent"
-
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -101,7 +82,6 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-
         android:background="@android:color/transparent"
         android:onClick="doAction"
         android:text="@string/main_bCards"
@@ -122,5 +102,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/config1" />
+
+    <ImageButton
+        android:id="@+id/music"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/audio1" />
 
 </android.support.constraint.ConstraintLayout>
