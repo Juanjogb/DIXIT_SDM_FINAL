@@ -35,4 +35,6 @@
     <string name="play_searchGame">Nombre partida existente</string>
     <string name="play_Jugar">Jugar</string>
     <string name="play_Search">Buscar</string>
+    <string name="localScores">Puntuación propia</string>
+    <string name="friendsScores">Puntuación amigos</string>
 </resources>
