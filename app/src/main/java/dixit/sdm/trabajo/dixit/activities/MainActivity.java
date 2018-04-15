@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mPlayer = MediaPlayer.create(this, R.raw.dixit_musica);
             mPlayer.seekTo(0);
             mPlayer.start();
+            mPlayer.setLooping(true);
         }
         else {
             onOff = false;
