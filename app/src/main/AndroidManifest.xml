@@ -23,8 +23,8 @@
         </activity>
         <activity android:name=".activities.RegisterActivity" />
         <activity android:name=".activities.CardsActivity" />
-        <activity android:name=".activities.PlayerActivity" />
-        <activity android:name=".activities.OnlineActivity" />
+        <activity android:name=".activities.PlayActivity" />
+        <activity android:name=".activities.GameActivity" />
         <activity android:name=".activities.RulesActivity" />
         <activity android:name=".activities.AvatarActivity"/>
         <activity android:name=".activities.AvatarActivityRegister"/>

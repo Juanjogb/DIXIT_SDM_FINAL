@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btn1 = findViewById(R.id.bPlayer);
+        Button btn1 = findViewById(R.id.bPlay);
         Button btn3 = findViewById(R.id.bScores);
         Button btn4 = findViewById(R.id.bRules);
         Button btn5 = findViewById(R.id.bCards);
@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void doAction(View v) {
         Intent i = new Intent();
         switch(v.getId()){
-            case R.id.bPlayer:
-                i.setClass(this, PlayerActivity.class);
+            case R.id.bPlay:
+                i.setClass(this, PlayActivity.class);
                 break;
             case R.id.bRules:
                 i.setClass(this, RulesActivity.class);
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 i.setClass(this, SettingsActivity.class);
                 break;
             case R.id.bScores:
-                i.setClass(this, OnlineActivity.class);
+                i.setClass(this, GameActivity.class);
                 break;
         }
         startActivity(i);

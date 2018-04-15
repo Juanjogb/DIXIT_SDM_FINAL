@@ -3,11 +3,14 @@ package dixit.sdm.trabajo.dixit.activities;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import dixit.sdm.trabajo.dixit.R;
@@ -34,6 +37,9 @@ public class LoginActivity extends AppCompatActivity {
     private EditText get_email;
     private EditText get_password;
 
+    private Button login;
+    private TextView register;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,10 +47,16 @@ public class LoginActivity extends AppCompatActivity {
 
         get_email = findViewById(R.id.login_email);
         get_password = findViewById(R.id.login_password);
+        login = findViewById(R.id.login_button);
+        register = findViewById(R.id.login_goRegister);
 
         progressDialog = new ProgressDialog(this);
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         editor = prefs.edit();
+
+        Typeface face = Typeface.createFromAsset(getAssets(),"greco.ttf");
+        login.setTypeface(face);
+        register.setTypeface(face);
 
         //Si tenemos algun par usuario/ticket en shared preferences validamos en segundo plano
         //y redirigimos al main activity

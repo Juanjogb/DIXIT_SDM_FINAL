@@ -31,4 +31,8 @@
     <string name="register_empty">Faltan campos</string>
     <string name="register_auto">Registrando usuario ...</string>
     <string name="main_bPlay">Jugar</string>
+    <string name="play_newGame">Nombre partida nueva</string>
+    <string name="play_searchGame">Nombre partida existente</string>
+    <string name="play_Jugar">Jugar</string>
+    <string name="play_Search">Buscar</string>
 </resources>
