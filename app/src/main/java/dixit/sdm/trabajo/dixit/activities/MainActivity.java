@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 i.setClass(this, SettingsActivity.class);
                 break;
             case R.id.bScores:
-                i.setClass(this, GameActivity.class);
+                i.setClass(this, ScoresActivity.class);
                 break;
         }
         startActivity(i);

@@ -48,12 +48,12 @@ public class PlayActivity extends AppCompatActivity {
             case R.id.play_btnPlay:
                 //crear nueva partida con el identificador que le hemos pasado y lanzar game activity
                 crearPartida(newGame.getText().toString());
-                i.setClass(this, GameActivity.class);
+                i.setClass(this, ScoresActivity.class);
                 break;
             case R.id.play_btnSearch:
                 //buscamos la partida con el identificador que hemos puesto y si la encontramos lanzamos game activity
                 buscarPartida(searchGame.getText().toString());
-                i.setClass(this, GameActivity.class);
+                i.setClass(this, ScoresActivity.class);
                 break;
         }
         startActivity(i);
