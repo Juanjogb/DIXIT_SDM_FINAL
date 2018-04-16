@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageButton btnMusica;
     private SharedPreferences prefs;
     private SharedPreferences.Editor editor;
-    private int posicion = 0;
     private Boolean onOff= false;
 
     @Override
@@ -67,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 i.setClass(this, SettingsActivity.class);
                 break;
             case R.id.bScores:
-                i.setClass(this, GameActivity.class);
+                i.setClass(this, ScoresActivity.class);
                 break;
         }
         startActivity(i);
@@ -85,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mPlayer = MediaPlayer.create(this, R.raw.dixit_musica);
             mPlayer.seekTo(0);
             mPlayer.start();
+            mPlayer.setLooping(true);
         }
         else {
             onOff = false;

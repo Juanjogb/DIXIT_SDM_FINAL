@@ -16,7 +16,9 @@ public class CardsAdapter extends PagerAdapter {
             R.drawable.siete, R.drawable.ocho, R.drawable.nueve, R.drawable.diez,
             R.drawable.once, R.drawable.doce, R.drawable.trece, R.drawable.catorce,
             R.drawable.quince, R.drawable.dieciseis, R.drawable.diecisiete,
-            R.drawable.dieciocho, R.drawable.diecinueve, R.drawable.veinte};
+            R.drawable.dieciocho, R.drawable.diecinueve, R.drawable.veinte,R.drawable.veintiuno,
+            R.drawable.veintidos, R.drawable.veintitres, R.drawable.veinticuatro,R.drawable.veinticinco,
+            R.drawable.veintiseis, R.drawable.veintisiete, R.drawable.veintiocho};
 
 
     public CardsAdapter(Context context) {
