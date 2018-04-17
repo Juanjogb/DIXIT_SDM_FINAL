@@ -8,34 +8,15 @@
     tools:context=".activities.PlayActivity">
 
     <EditText
-        android:id="@+id/play_newGame"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="60dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="@string/play_newGame"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
         android:id="@+id/play_searchGame"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:ems="10"
-        android:inputType="text"
         android:hint="@string/play_searchGame"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/play_btnPlay" />
 
@@ -47,13 +28,12 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
         android:background="@android:color/transparent"
-        android:onClick="onClick"
+        android:onClick="createGame"
         android:text="@string/play_Jugar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/play_newGame" />
+        tools:layout_editor_absoluteY="138dp" />
 
     <Button
         android:id="@+id/play_btnSearch"
@@ -63,11 +43,40 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
         android:background="@android:color/transparent"
-        android:onClick="onClick"
+        android:onClick="joinGame"
         android:text="@string/play_Search"
+        app:layout_constraintBaseline_toBaselineOf="@+id/play_searchGame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/play_searchGame" />
+
+    <Button
+        android:id="@+id/play_reverso"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:onClick="doReverso"
+        android:text="@string/play_reverso"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/play_reversoId"
+        android:layout_width="93dp"
+        android:layout_height="122dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="32dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/play_reverso"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/play_searchGame" />
+        app:srcCompat="@drawable/reverso_original" />
 </android.support.constraint.ConstraintLayout>

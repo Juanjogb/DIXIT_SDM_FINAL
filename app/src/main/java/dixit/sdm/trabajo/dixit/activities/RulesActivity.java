@@ -4,6 +4,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
+import android.view.View;
+
 
 import dixit.sdm.trabajo.dixit.R;
 import dixit.sdm.trabajo.dixit.adapters.RulesAdapter;
@@ -21,12 +23,14 @@ public class RulesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rules);
 
+
         mSlideViewPager = (ViewPager) findViewById(R.id.slideViewPager);
         //mDotLayout = (LinearLayout) findViewById(R.id.dotsLayout);
 
         sliderAdapter = new SliderAdapter(this);
 
         mSlideViewPager.setAdapter(sliderAdapter);
+
 
 
 
