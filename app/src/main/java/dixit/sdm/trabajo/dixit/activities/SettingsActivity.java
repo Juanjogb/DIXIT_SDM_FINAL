@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -69,15 +70,17 @@ public class SettingsActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         Bundle b = getIntent().getExtras();
         if (b != null) {
-            username.setText(b.getString("username"));
-            password.setText(b.getString("password"));
-            avatarToSave = b.getString("avatar");
+            //Si venimos de changeAvatar
+            username.setText(b.getString("tmp_username"));
+            password.setText(b.getString("tmp_password"));
+            avatarToSave = b.getString("tmp_avatar");
             avatar.setImageResource(getResources().getIdentifier("ava" + avatarToSave, "drawable", getPackageName()));
         } else {
             String saved_avatar = prefs.getString("avatar", null);
             avatar.setImageResource(getResources().getIdentifier("ava" + saved_avatar, "drawable", getPackageName()));
             avatarToSave = saved_avatar;
         }
+
     }
 
     public void changeAvatar(View v) {
@@ -86,7 +89,9 @@ public class SettingsActivity extends AppCompatActivity {
         editor.putString("tmp_username",arUsername);
         editor.putString("tmp_password",arPassword);
         editor.apply();
-        startActivity(new Intent(this, AvatarActivity.class));
+        Intent i = new Intent(this, AvatarActivity.class);
+        i.putExtra("activity", "settings");
+        startActivity(i);
         finish();
     }
 

@@ -4,21 +4,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/bg"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="654dp"
-        android:layout_height="567dp"
-        android:layout_marginBottom="8dp"
+    <TextView
+        android:id="@+id/game_idPartida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
+        android:text="TextView"
+        app:layout_constraintBaseline_toBaselineOf="@+id/game_shareGame"
+        app:layout_constraintEnd_toStartOf="@+id/game_shareGame" />
+
+    <Button
+        android:id="@+id/game_shareGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:onClick="shareGame"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/game_shareGame"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/tablero_dixit" />
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

@@ -20,19 +20,19 @@ import dixit.sdm.trabajo.dixit.helpers.SaveChangesTask;
 import static dixit.sdm.trabajo.dixit.helpers.Const.BASE_URL;
 
 public class RegisterActivity extends AppCompatActivity {
-    
+
     //Referencias a los campos del register activity
     private EditText get_username;
     private EditText get_email;
     private EditText get_password;
     private ImageButton get_avatar;
-    
+
     //Campos del register activity
     private String username;
     private String email;
     private String password;
     private String avatar;
-    
+
     //Campos de sharedpreferences
     private String tmp_username;
     private String tmp_email;
@@ -54,14 +54,14 @@ public class RegisterActivity extends AppCompatActivity {
         get_email = findViewById(R.id.register_email);
         get_password = findViewById(R.id.register_password);
         get_avatar = findViewById(R.id.register_avatar);
-        
+
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         editor = prefs.edit();
-        
-        tmp_username = prefs.getString("username",null);
-        tmp_email = prefs.getString("email", null);
-        tmp_password = prefs.getString("password", null);
-        tmp_avatar = prefs.getString("avatar","1");
+
+        tmp_username = prefs.getString("tmp_username",null);
+        tmp_email = prefs.getString("tmp_email", null);
+        tmp_password = prefs.getString("tmp_password", null);
+        tmp_avatar = prefs.getString("tmp_avatar","1");
 
         progressDialog = new ProgressDialog(this);
 
@@ -70,22 +70,24 @@ public class RegisterActivity extends AppCompatActivity {
             get_username.setText(tmp_username);
             get_email.setText(tmp_email);
             get_password.setText(tmp_password);
-            avatar = b.getString("avatar");
-            get_avatar.setImageResource(getResources().getIdentifier("ava" + avatar, "drawable", getPackageName()));
+            avatar = b.getString("tmp_avatar");
         } else {
-            get_avatar.setImageResource(getResources().getIdentifier("ava" + tmp_avatar, "drawable", getPackageName()));
+            avatar = "1";
         }
+        get_avatar.setImageResource(getResources().getIdentifier("ava" + avatar, "drawable", getPackageName()));
     }
 
     public void selectAvatar(View view) {
         username = get_username.getText().toString();
         email = get_email.getText().toString();
         password = get_password.getText().toString();
-        editor.putString("username",username);
-        editor.putString("email",email);
-        editor.putString("password",password);
+        editor.putString("tmp_username",username);
+        editor.putString("tmp_email",email);
+        editor.putString("tmp_password",password);
         editor.apply();
-        startActivity(new Intent(this, AvatarActivityRegister.class));
+        Intent i = new Intent(this, AvatarActivity.class);
+        i.putExtra("activity", "register");
+        startActivity(i);
         finish();
     }
 
@@ -94,6 +96,11 @@ public class RegisterActivity extends AppCompatActivity {
         progressDialog.dismiss();
         if (output.indexOf("Error") == -1) {
             //Registro correcto, pasamos a la main activity
+            editor.putString("email", email);
+            editor.putString("ticket", output);
+            editor.putString("username", username);
+            editor.putString("avatar", avatar);
+            editor.apply();
             Intent i = new Intent(this, MainActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(i);
@@ -108,18 +115,17 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void registerUser(View v) {
-        
+
         username = get_username.getText().toString();
         email = get_email.getText().toString();
         password = get_password.getText().toString();
-        avatar = "1";//falta seleccionar el avatar
         if (email.matches("") || password.matches("")) {
             Toast.makeText(this, getString(R.string.register_empty), Toast.LENGTH_SHORT).show();
         } else {
             try {
                 progressDialog.setMessage(getString(R.string.register_auto));
                 progressDialog.show();
-                new RegisterTask(this).execute(new String[]{"GET", BASE_URL + "register.php?username="+ username +  "&email=" + email + "&password=" + (new SHA1()).SHA1(password)+ "&avatar" + avatar});
+                new RegisterTask(this).execute(new String[]{"GET", BASE_URL + "register.php?username="+ username +  "&email=" + email + "&password=" + (new SHA1()).SHA1(password)+ "&avatar=" + avatar});
             } catch (Exception e) {
                 e.printStackTrace();
             }
