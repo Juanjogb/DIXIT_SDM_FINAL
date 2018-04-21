@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "634955831412",
+    "firebase_url": "https://dixitsdmfinal.firebaseio.com",
+    "project_id": "dixitsdmfinal",
+    "storage_bucket": "dixitsdmfinal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634955831412:android:4b44b26f7195f838",
+        "android_client_info": {
+          "package_name": "dixit.sdm.trabajo.dixit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "634955831412-0ss03j64c457jrugpu154kj0labjkrnu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dixit.sdm.trabajo.dixit",
+            "certificate_hash": "e7f1487f797f493c100740d091dbcff1fcdf6f1b"
+          }
+        },
+        {
+          "client_id": "634955831412-inahtbagu4av92cg1c4k8hp8aem2rt02.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBE8edPxJzQvGmla_8B0YWSdNeA6eXGFAI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "634955831412-inahtbagu4av92cg1c4k8hp8aem2rt02.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

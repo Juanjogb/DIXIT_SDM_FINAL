@@ -29,7 +29,6 @@ public class BarajaActivity extends AppCompatActivity {
     public void setReverso(View v) {
         Intent i = new Intent(this, PlayActivity.class);
         i.putExtra("reverso", getResources().getResourceEntryName(v.getId()).split("_")[1]);
-        i.putExtra("tmp_newGame",prefs.getString("tmp_newGame",null));
         i.putExtra("tmp_searchGame",prefs.getString("tmp_searchGame",null));
         startActivity(i);
         finish();

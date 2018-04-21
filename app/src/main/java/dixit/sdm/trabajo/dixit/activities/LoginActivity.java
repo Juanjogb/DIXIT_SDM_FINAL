@@ -3,20 +3,24 @@ package dixit.sdm.trabajo.dixit.activities;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.iid.FirebaseInstanceId;
+
 import dixit.sdm.trabajo.dixit.R;
+import dixit.sdm.trabajo.dixit.helpers.CheckTicketTask;
 import dixit.sdm.trabajo.dixit.helpers.LoginTask;
 import dixit.sdm.trabajo.dixit.helpers.SHA1;
-import dixit.sdm.trabajo.dixit.helpers.CheckTicketTask;
+import dixit.sdm.trabajo.dixit.helpers.Session;
 
 import static dixit.sdm.trabajo.dixit.helpers.Const.BASE_URL;
 
@@ -32,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     //Campos del login activity
     private String email;
     private String password;
-
+    private String token;
     //Referencias a los dos campos del login activity
     private EditText get_email;
     private EditText get_password;
@@ -44,30 +48,23 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         get_email = findViewById(R.id.login_email);
         get_password = findViewById(R.id.login_password);
         login = findViewById(R.id.login_button);
         register = findViewById(R.id.login_goRegister);
-
         progressDialog = new ProgressDialog(this);
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         editor = prefs.edit();
 
-        Typeface face = Typeface.createFromAsset(getAssets(),"greco.ttf");
-        login.setTypeface(face);
-        register.setTypeface(face);
-
         //Si tenemos algun par usuario/ticket en shared preferences validamos en segundo plano
         //y redirigimos al main activity
-        tmp_email = prefs.getString("email", null);
-        tmp_ticket = prefs.getString("ticket", null);
-        if (tmp_email != null && tmp_ticket != null) {
+        Session s = new Session(this);
+        if (!s.isEmpty()) {
             //Dialog de iniciando sesion
             progressDialog.setMessage(getString(R.string.login_auto));
             progressDialog.show();
             try {
-                new CheckTicketTask(this).execute(new String[]{"GET", BASE_URL + "checkTicket.php?email=" + tmp_email + "&ticket=" + tmp_ticket});
+                new CheckTicketTask(this).execute(new String[]{"GET", BASE_URL + "checkTicket.php?email=" + s.getEmail() + "&ticket=" + s.getTicket()});
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -82,9 +79,11 @@ public class LoginActivity extends AppCompatActivity {
 
     public void processFinish(String output) {
         progressDialog.dismiss();
+        Session s = new Session(this);
+        Log.e("TTTTTLOGIN: ", output);
         if (output.indexOf("Error") == -1) {
             //Guardar el ticket que nos han devuelto (si venimos de login) osea un if no existe en shared nada guardamos
-            if (tmp_email == null && tmp_ticket == null) {
+            if (s.isEmpty()) {
                 String[] res = output.split("#");
                 editor.putString("email", email);
                 editor.putString("ticket", res[0]);
@@ -92,16 +91,14 @@ public class LoginActivity extends AppCompatActivity {
                 editor.putString("avatar", res[2]);
                 editor.apply();
             }
+
             Intent i = new Intent(this, MainActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(i);
             finish();
-        }
-        else {
+        } else {
             Toast.makeText(this, output, Toast.LENGTH_SHORT).show();
-            editor.remove("email");
-            editor.remove("ticket");
-            editor.apply();
+            s.destroy();
         }
     }
 
