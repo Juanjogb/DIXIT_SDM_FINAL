@@ -15,8 +15,15 @@ public class SliderAdapter extends PagerAdapter {
     Context context;
     LayoutInflater layoutInflater;
 
-    public SliderAdapter(Context context) {
+    String[] slide_headings = null;
+    String[] slide_descs = null;
+
+    public SliderAdapter(Context context, String[] headings, String[] rules) {
+
         this.context = context;
+        slide_headings = headings;
+        slide_descs = rules;
+
     }
 
     //Arrays
@@ -24,14 +31,14 @@ public class SliderAdapter extends PagerAdapter {
 
     };
 */
-    public String[] slide_headings = {
-            "Preparacion","Cuentacuentos","Otros jugadores","Puntuacion","Final del turno","Final del juego"
+    /*public String[] slide_headings = {
+            "Preparación","Cuentacuentos","Otros jugadores","Puntuación","Final del turno","Final del juego"
     };
 
     public String[] slide_descs = {
-            "\nCada jugador empieza en la casilla 0 y con 6 cartas en la mano.\nEl resto se encuentran en el mazo.",
-            "\nCada turno se elegira a un cuentacuentos que debera elegir una de las cartas de su mano y redactar una frase que tenga que ver con esta.",
-            "El resto de jugadores elegira una carta de su mano que mas se adapte a la descripcion del cuentacuentos.\n Despues votaran intentando adivinar que carta de entre todas creen que es la del cuentacuentos.",
+            rule1,
+            rule2,
+            rule3,
             "Si todos los jugadores(o ninguno) han acertado la carta del cuentacuentos, el cuentacuentos recibe 2 puntos.\n" +
                     "\t\tSino tanto el cuentacuentos como los jugadores que han acertado la carta del cuentacuentos reciben 3 puntos.\n" +
                     "\t\tAdemas todos los jugadores(excepto el cuentacuentos) reciben 1 punto por cada voto que reciba su carta.",
@@ -39,6 +46,8 @@ public class SliderAdapter extends PagerAdapter {
             "\nEl juego termina cuando se roba la ultima carta.\n El jugador que mas lejos haya llegado en la escala de puntuacion es el ganador."
     };
 
+
+    */
     @Override
     public int getCount() {
         return slide_headings.length;
@@ -51,6 +60,8 @@ public class SliderAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
+
+
 
         layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.slide_layout, container, false);

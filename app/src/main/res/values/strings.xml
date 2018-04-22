@@ -24,7 +24,7 @@
     <string name="settings_saving">Guardando cambios...</string>
     <string name="register_register">Registrar</string>
     <string name="register_password">Contraseña</string>
-    <string name="register_email" translatable="false">Email</string>
+    <string name="register_email">Email</string>
     <string name="register_username">Nombre</string>
     <string name="register_selectAvatar">Seleccionar avatar</string>
     <string name="register_saving">Registrando usuario</string>
@@ -58,4 +58,27 @@
     <string name="ok">SI</string>
     <string name="cancel">NO</string>
     <string name="boton_OK">Has escogido esta carta</string>
+
+    //ScoresActivity
+    <string name="local"> Local</string>
+    <string name="friends"> Amigos</string>
+
+
+    //RulesActiviy
+    <string name="head1"> Preparación</string>
+    <string name="head2"> Cuentacuentos</string>
+    <string name="head3"> Otros jugadores</string>
+    <string name="head4"> Puntuación</string>
+    <string name="head5"> Final del turno</string>
+    <string name="head6"> Final del juego</string>
+
+    <string name="desc1">"  Cada jugador empieza en la casilla 0 y con 6 cartas en la mano. El resto se encuentran en el mazo."</string>
+    <string name="desc2"> Cada turno se elegirá a un cuentacuentos que debera elegir una de las cartas de su mano y redactar una frase que tenga que ver con esta.</string>
+    <string name="desc3"> El resto de jugadores elegira una carta de su mano que más se adapte a la descripcion del cuentacuentos. Después votaran intentando adivinar que carta de entre todas creen que es la del cuentacuentos.</string>
+    <string name="desc4">" Si todos los jugadores(o ninguno) han acertado la carta del cuentacuentos, el cuentacuentos recibe 2 puntos.  +                     \t\tSino tanto el cuentacuentos como los jugadores que han acertado la carta del cuentacuentos reciben 3 puntos.  +                     \t\tAdemas todos los jugadores(excepto el cuentacuentos) reciben 1 punto por cada voto que reciba su carta."</string>
+    <string name="desc5"> \nSe descartan las cartas jugadas y la ficha de cada jugador avanzara tantas posiciones como puntos hayan obtenido este turno.\n Despues cada jugador robara hasta tener en mano 6 cartas de nuevo y el rol de cuentacuentos pasara al siguiente jugador.</string>
+    <string name="desc6">"  El juego termina cuando se roba la ultima carta.  El jugador que mas lejos haya llegado en la escala de puntuacion es el ganador."</string>
+    <string name="rule1">"   Cada jugador comienza en la casilla 0 y con 6 cartas en su mano. El resto de los jugadores están en el mazo."</string>
+    <string name="rule2">En cada turno se elegirá un narrador que elegirá una de las cartas de tu mano y escribirá una frase que tenga que ver con ella.</string>
+    <string name="rule3">Los otros jugadores elegirán una carta de su mano que mejor se ajuste a la descripción del narrador. Luego votarán tratando de adivinar qué letra de todas las que creen que es la que tiene el narrador.</string>
 </resources>
