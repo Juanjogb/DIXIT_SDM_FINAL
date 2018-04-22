@@ -87,5 +87,5 @@
     <!-- About Activity -->
 
     <string name="about"> Sobre nosotros</string>
-    <string name="nombres"> Somos un grupo de estudiantes de la asignatura de SDM formado por: \n\n - Alberto de Arévalo Vidarte \n - Carlos Herrera Piedra \n - Juan José Gonzalez Blesa \n - David </string>
+    <string name="nombres"> Somos un grupo de estudiantes de la asignatura de SDM formado por: \n\n - Alberto de Arévalo Vidarte \n - Carlos Herrera Piedra \n - Juan José Gonzalez Blesa \n - David Murillo Palacios </string>
 </resources>
