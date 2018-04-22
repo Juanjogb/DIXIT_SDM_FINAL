@@ -41,18 +41,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //FirebaseInstanceId.getInstance().getToken();
         MyFirebaseInstanceIDService fb = new MyFirebaseInstanceIDService();
         new SendTokenTask(this).execute(new String[]{"GET", BASE_URL + "sendToken.php?email=" + s.getEmail() + "&ticket=" + s.getTicket() + "&token=" + fb.token()});
+
         Typeface face = Typeface.createFromAsset(getAssets(), "greco.ttf");
         ((Button) (findViewById(R.id.bPlay))).setTypeface(face);
         ((Button) (findViewById(R.id.bScores))).setTypeface(face);
         ((Button) (findViewById(R.id.bRules))).setTypeface(face);
         ((Button) (findViewById(R.id.bCards))).setTypeface(face);
         ((Button) (findViewById(R.id.bExit))).setTypeface(face);
+
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         editor = prefs.edit();
         editor.putBoolean("musicaOn", false);
         editor.apply();
 
-        btnMusica.setImageResource(R.drawable.audio_off);
+        btnMusica.setImageResource(R.drawable.volumen_off);
         btnMusica.setOnClickListener(this);
 
     }
@@ -95,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mPlayer.setLooping(true);
         } else {
             onOff = false;
-            btnMusica.setImageResource(R.drawable.audio_off);
+            btnMusica.setImageResource(R.drawable.volumen_off);
             if (mPlayer != null) {
                 mPlayer.stop();
             }

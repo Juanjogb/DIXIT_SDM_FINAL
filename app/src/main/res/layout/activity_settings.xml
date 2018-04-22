@@ -7,6 +7,21 @@
     android:background="@drawable/bg"
     tools:context=".activities.SettingsActivity">
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+
     <TextView
         android:id="@+id/settings_email"
         android:layout_width="0dp"
@@ -15,13 +30,15 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="@string/settings_email"
+        android:fontFamily="@font/greco"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <EditText
         android:id="@+id/settings_username"
@@ -34,6 +51,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="@string/settings_username"
+        android:fontFamily="@font/greco"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,6 +68,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="@string/settings_password"
+        android:fontFamily="@font/greco"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,6 +99,7 @@
         android:background="@android:color/transparent"
         android:onClick="saveChanges"
         android:text="@string/settings_save"
+        android:fontFamily="@font/greco"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -92,6 +112,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/settings_changeAvatar"
+        android:fontFamily="@font/greco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/settings_avatar" />

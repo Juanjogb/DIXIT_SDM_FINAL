@@ -85,6 +85,7 @@ public class LoginActivity extends AppCompatActivity {
     public void processFinish(String output) {
         progressDialog.dismiss();
         Session s = new Session(this);
+
         if (output.indexOf("Error") == -1) {
             //Guardar el ticket que nos han devuelto (si venimos de login) osea un if no existe en shared nada guardamos
             if (s.isEmpty()) {

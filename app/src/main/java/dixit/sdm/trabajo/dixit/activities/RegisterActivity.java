@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.app.ProgressDialog;
@@ -12,10 +13,8 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import dixit.sdm.trabajo.dixit.R;
-import dixit.sdm.trabajo.dixit.helpers.LoginTask;
 import dixit.sdm.trabajo.dixit.helpers.RegisterTask;
 import dixit.sdm.trabajo.dixit.helpers.SHA1;
-import dixit.sdm.trabajo.dixit.helpers.SaveChangesTask;
 
 import static dixit.sdm.trabajo.dixit.helpers.Const.BASE_URL;
 
@@ -94,6 +93,7 @@ public class RegisterActivity extends AppCompatActivity {
     public void processFinish(String output) {
 
         progressDialog.dismiss();
+        Log.e("TTTTTREGISTER: ", output);
         if (output.indexOf("Error") == -1) {
             //Registro correcto, pasamos a la main activity
             editor.putString("email", email);

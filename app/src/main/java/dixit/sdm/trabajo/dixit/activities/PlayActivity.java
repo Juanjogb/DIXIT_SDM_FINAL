@@ -7,7 +7,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +27,7 @@ public class PlayActivity extends AppCompatActivity {
     private Button search;
     private ImageView reverso;
     private Button reversoBtn;
+    private String reversoElegido;
 
     private int[] cartasJuego = new int[]{R.drawable.uno, R.drawable.dos,
             R.drawable.tres, R.drawable.cuatro, R.drawable.cinco, R.drawable.seis,
@@ -60,12 +60,14 @@ public class PlayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
+
         s = new Session(this);
         searchGame = findViewById(R.id.play_searchGame);
         play = findViewById(R.id.play_btnPlay);
         search = findViewById(R.id.play_btnSearch);
         reverso = findViewById(R.id.play_reversoId);
         reversoBtn = findViewById(R.id.play_reverso);
+
 
         Typeface face = Typeface.createFromAsset(getAssets(), "greco.ttf");
         play.setTypeface(face);
@@ -81,7 +83,7 @@ public class PlayActivity extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         if (b != null) {
             searchGame.setText(b.getString("password"));
-            String reversoElegido = b.getString("reverso");
+            reversoElegido = b.getString("reverso");
             reverso.setImageResource(getResources().getIdentifier("reverso_" + reversoElegido, "drawable", getPackageName()));
         }
 
@@ -93,8 +95,12 @@ public class PlayActivity extends AppCompatActivity {
         progressDialog.dismiss();
         if (output.indexOf("Error") == -1) {
             Toast.makeText(this, getString(R.string.play_gameCreated), Toast.LENGTH_SHORT).show();
+
             Intent i = new Intent(this, GameActivity.class);
             i.putExtra("id", output);
+
+            i.putExtra("reverso",reversoElegido);
+
             startActivity(i);
         } else Toast.makeText(this, output, Toast.LENGTH_SHORT).show();
 
