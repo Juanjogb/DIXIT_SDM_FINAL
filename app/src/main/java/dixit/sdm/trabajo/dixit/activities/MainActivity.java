@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editor.putBoolean("musicaOn", false);
         editor.apply();
 
-        btnMusica.setImageResource(R.drawable.audio_off);
+        btnMusica.setImageResource(R.drawable.volumen_off);
         btnMusica.setOnClickListener(this);
 
     }
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mPlayer.setLooping(true);
         } else {
             onOff = false;
-            btnMusica.setImageResource(R.drawable.audio_off);
+            btnMusica.setImageResource(R.drawable.volumen_off);
             if (mPlayer != null) {
                 mPlayer.stop();
             }

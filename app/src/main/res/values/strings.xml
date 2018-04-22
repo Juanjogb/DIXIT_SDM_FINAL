@@ -24,7 +24,7 @@
     <string name="settings_saving">Guardando cambios...</string>
     <string name="register_register">Registrar</string>
     <string name="register_password">Contraseña</string>
-    <string name="register_email">Email</string>
+    <string name="register_email" translatable="false">Email</string>
     <string name="register_username">Nombre</string>
     <string name="register_selectAvatar">Seleccionar avatar</string>
     <string name="register_saving">Registrando usuario</string>
@@ -53,4 +53,9 @@
     <string name="game_btn">OK</string>
     <string name="game_id">Id. partida: </string>
     <string name="game_nameJ1">nombreJug</string>
+    <string name="card_select">¿Escoges esta carta?</string>
+    <string name="dialog_title">Titulo dialogo</string>
+    <string name="ok">SI</string>
+    <string name="cancel">NO</string>
+    <string name="boton_OK">Has escogido esta carta</string>
 </resources>

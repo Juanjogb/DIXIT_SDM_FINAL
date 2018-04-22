@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dixit</string>
+    <string name="main_bPlayer">One player</string>
+    <string name="main_bOnline">Multiplayer</string>
+    <string name="main_bScores">Scores</string>
+    <string name="main_bRules">Rules</string>
+    <string name="main_bCards">Cards</string>
+    <string name="settings_title">Settings</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="login_goRegister">Create a new account</string>
+    <string name="login_login">Log in</string>
+    <string name="login_empty">Fill the fields</string>
+    <string name="login_auto">Log in...</string>
+    <string name="register_title">Register</string>
+    <string name="rules_title">Rules</string>
+    <string name="settings_username">User</string>
+    <string name="settings_email">Email</string>
+    <string name="cards_title">Cards</string>
+    <string name="settings_save">Save changes</string>
+    <string name="settings_password">Password</string>
+    <string name="settings_changeAvatar">Change</string>
+    <string name="unknown_error">Unknown error.</string>
+    <string name="settings_saving">Save changes...</string>
+    <string name="register_register">Register</string>
+    <string name="register_password">Password</string>
+    <string name="register_username">Name</string>
+    <string name="register_selectAvatar">Select avatar</string>
+    <string name="register_saving">Registering user</string>
+    <string name="register_empty">Missing fields</string>
+    <string name="register_auto">Registering user...</string>
+    <string name="main_bPlay">Play</string>
+    <string name="play_searchGame">ID match</string>
+    <string name="play_Jugar">New match</string>
+    <string name="play_Search">Join match</string>
+    <string name="create_game">Creating match...</string>
+    <string name="localScores">My score</string>
+    <string name="friendsScores">Friend\'s Score</string>
+    <string name="search_game">Searching match...</string>
+    <string name="play_reverso">Select backgorund</string>
+    <string name="main_bExit">Log out</string>
+    <string name="play_gameCreated">Generate game</string>
+    <string name="game_shareGame">Share matchID</string>
+</resources>
