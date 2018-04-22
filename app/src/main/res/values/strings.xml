@@ -5,6 +5,7 @@
     <string name="main_bScores">Puntuaciones</string>
     <string name="main_bRules">Reglas</string>
     <string name="main_bCards">Cartas</string>
+    <string name="main_bAbout">Sobre nosotros</string>
     <string name="settings_title">Configuración</string>
     <string name="login_email">Email</string>
     <string name="login_password">Contraseña</string>
@@ -76,10 +77,15 @@
     <string name="desc1">"  Cada jugador empieza en la casilla 0 y con 6 cartas en la mano. El resto se encuentran en el mazo."</string>
     <string name="desc2"> Cada turno se elegirá a un cuentacuentos que debera elegir una de las cartas de su mano y redactar una frase que tenga que ver con esta.</string>
     <string name="desc3"> El resto de jugadores elegira una carta de su mano que más se adapte a la descripcion del cuentacuentos. Después votaran intentando adivinar que carta de entre todas creen que es la del cuentacuentos.</string>
-    <string name="desc4">" Si todos los jugadores(o ninguno) han acertado la carta del cuentacuentos, el cuentacuentos recibe 2 puntos.  +                     \t\tSino tanto el cuentacuentos como los jugadores que han acertado la carta del cuentacuentos reciben 3 puntos.  +                     \t\tAdemas todos los jugadores(excepto el cuentacuentos) reciben 1 punto por cada voto que reciba su carta."</string>
+    <string name="desc4">" Si todos los jugadores(o ninguno) han acertado la carta del cuentacuentos, el cuentacuentos recibe 2 puntos. Sino tanto el cuentacuentos como los jugadores que han acertado la carta del cuentacuentos reciben 3 puntos. \nAdemas todos los jugadores(excepto el cuentacuentos) reciben 1 punto por cada voto que reciba su carta."</string>
     <string name="desc5"> \nSe descartan las cartas jugadas y la ficha de cada jugador avanzara tantas posiciones como puntos hayan obtenido este turno.\n Despues cada jugador robara hasta tener en mano 6 cartas de nuevo y el rol de cuentacuentos pasara al siguiente jugador.</string>
     <string name="desc6">"  El juego termina cuando se roba la ultima carta.  El jugador que mas lejos haya llegado en la escala de puntuacion es el ganador."</string>
     <string name="rule1">"   Cada jugador comienza en la casilla 0 y con 6 cartas en su mano. El resto de los jugadores están en el mazo."</string>
     <string name="rule2">En cada turno se elegirá un narrador que elegirá una de las cartas de tu mano y escribirá una frase que tenga que ver con ella.</string>
     <string name="rule3">Los otros jugadores elegirán una carta de su mano que mejor se ajuste a la descripción del narrador. Luego votarán tratando de adivinar qué letra de todas las que creen que es la que tiene el narrador.</string>
+
+    <!-- About Activity -->
+
+    <string name="about"> Sobre nosotros</string>
+    <string name="nombres"> Somos un grupo de estudiantes de la asignatura de SDM formado por: \n\n - Alberto de Arévalo Vidarte \n - Carlos Herrera Piedra \n - Juan José Gonzalez Blesa \n - David </string>
 </resources>

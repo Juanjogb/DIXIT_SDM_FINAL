@@ -76,4 +76,7 @@
     <string name="desc4">" If all (or none) of the players have hit the storyteller's card, the storyteller receives 2 points.  The storyteller as well as the players who have hit the storyteller card receive 3 points.  In addition, all players (except the storyteller) receive 1 point for each vote their card receives."</string>
     <string name="local">Local</string>
     <string name="friends">Friends</string>
+    <string name="main_bAbout">About</string>
+    <string name="about">About</string>
+    <string name="nombres">We are a group of students of the subject of SDM formed by: \n\n - Alberto de Arévalo Vidarte \n - Carlos Herrera Piedra \n - Juan José Gonzalez Blesa \n - David</string>
 </resources>

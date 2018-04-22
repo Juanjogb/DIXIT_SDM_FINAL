@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/logo" />
 
     <TextView
-        android:id="@+id/slide_heading"
+        android:id="@+id/heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
