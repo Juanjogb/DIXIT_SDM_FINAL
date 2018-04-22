@@ -1,17 +1,14 @@
 package dixit.sdm.trabajo.dixit.activities;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 import dixit.sdm.trabajo.dixit.R;
 
@@ -20,14 +17,20 @@ public class GameActivity extends AppCompatActivity {
     private String  id;//Id partida
 
     private Button ok;
-    private int[] mImageIds = new int[]{R.drawable.uno, R.drawable.dos,
-            R.drawable.tres, R.drawable.cuatro, R.drawable.cinco, R.drawable.seis,
-            R.drawable.siete, R.drawable.ocho, R.drawable.nueve, R.drawable.diez,
-            R.drawable.once, R.drawable.doce, R.drawable.trece, R.drawable.catorce,
-            R.drawable.quince, R.drawable.dieciseis, R.drawable.diecisiete,
-            R.drawable.dieciocho, R.drawable.diecinueve, R.drawable.veinte,R.drawable.veintiuno,
-            R.drawable.veintidos, R.drawable.veintitres, R.drawable.veinticuatro,R.drawable.veinticinco,
-            R.drawable.veintiseis, R.drawable.veintisiete, R.drawable.veintiocho};
+    private int[] mImageIds = new int[]{R.drawable.card_1, R.drawable.card_2,
+            R.drawable.card_3, R.drawable.card_4, R.drawable.card_5, R.drawable.card_6,
+            R.drawable.card_7, R.drawable.card_8, R.drawable.card_9, R.drawable.card_10,
+            R.drawable.card_11, R.drawable.card_12, R.drawable.card_13, R.drawable.card_14,
+            R.drawable.card_15, R.drawable.card_16, R.drawable.card_17,
+            R.drawable.card_18, R.drawable.card_19, R.drawable.card_20,R.drawable.card_21,
+            R.drawable.card_22, R.drawable.card_23, R.drawable.card_24,R.drawable.card_25,
+            R.drawable.card_26, R.drawable.card_27, R.drawable.card_28,
+            R.drawable.card_29, R.drawable.card_30, R.drawable.card_31,R.drawable.card_32,
+            R.drawable.card_33, R.drawable.card_34, R.drawable.card_35,R.drawable.card_36,
+            R.drawable.card_37, R.drawable.card_38, R.drawable.card_39,
+            R.drawable.card_40, R.drawable.card_41, R.drawable.card_42,R.drawable.card_43,
+            R.drawable.card_44, R.drawable.card_45, R.drawable.card_46,R.drawable.card_47,
+            R.drawable.card_48, R.drawable.card_49, R.drawable.card_50,R.drawable.card_51};
 
 
     public int[] cardsJ1 = new int[6];

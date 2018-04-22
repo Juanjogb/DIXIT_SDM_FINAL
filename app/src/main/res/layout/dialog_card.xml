@@ -31,6 +31,7 @@
         android:layout_marginStart="8dp"
         android:background="@android:color/transparent"
         android:text="@string/ok"
+        android:fontFamily="@font/greco"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -44,6 +45,7 @@
         android:layout_marginStart="8dp"
         android:background="@android:color/transparent"
         android:text="@string/cancel"
+        android:fontFamily="@font/greco"
         app:layout_constraintBaseline_toBaselineOf="@+id/dialog_ok"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/dialog_ok" />
@@ -59,6 +61,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/card_select"
+        android:fontFamily="@font/greco"
         app:layout_constraintBottom_toTopOf="@+id/dialog_no"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

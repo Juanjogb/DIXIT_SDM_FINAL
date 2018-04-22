@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,14 +28,14 @@ public class PlayActivity extends AppCompatActivity {
     private Button reversoBtn;
     private String reversoElegido;
 
-    private int[] cartasJuego = new int[]{R.drawable.uno, R.drawable.dos,
-            R.drawable.tres, R.drawable.cuatro, R.drawable.cinco, R.drawable.seis,
-            R.drawable.siete, R.drawable.ocho, R.drawable.nueve, R.drawable.diez,
-            R.drawable.once, R.drawable.doce, R.drawable.trece, R.drawable.catorce,
-            R.drawable.quince, R.drawable.dieciseis, R.drawable.diecisiete,
-            R.drawable.dieciocho, R.drawable.diecinueve, R.drawable.veinte, R.drawable.veintiuno,
-            R.drawable.veintidos, R.drawable.veintitres, R.drawable.veinticuatro, R.drawable.veinticinco,
-            R.drawable.veintiseis, R.drawable.veintisiete, R.drawable.veintiocho};
+    private int[] cartasJuego = new int[]{R.drawable.card_1, R.drawable.card_2,
+            R.drawable.card_3, R.drawable.card_4, R.drawable.card_5, R.drawable.card_6,
+            R.drawable.card_7, R.drawable.card_8, R.drawable.card_9, R.drawable.card_10,
+            R.drawable.card_11, R.drawable.card_12, R.drawable.card_13, R.drawable.card_14,
+            R.drawable.card_15, R.drawable.card_16, R.drawable.card_17,
+            R.drawable.card_18, R.drawable.card_19, R.drawable.card_20, R.drawable.card_21,
+            R.drawable.card_22, R.drawable.card_23, R.drawable.card_24, R.drawable.card_25,
+            R.drawable.card_26, R.drawable.card_27, R.drawable.card_28};
 
     //partida por defecto 4 jugadores
     private int[] cartasJ1 = new int[5];
@@ -87,6 +86,11 @@ public class PlayActivity extends AppCompatActivity {
     public void processFinish(String output) {
         progressDialog.dismiss();
         if (output.indexOf("Error") == -1) {
+            editor.putString("score1", null);
+            editor.putString("score2", null);
+            editor.putString("score3", null);
+            editor.putString("score4", null);
+            editor.apply();
             Toast.makeText(this, getString(R.string.play_gameCreated), Toast.LENGTH_SHORT).show();
             Intent i = new Intent(this, Game2Activity.class);
             i.putExtra("id", output);

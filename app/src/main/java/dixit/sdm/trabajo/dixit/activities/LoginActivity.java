@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     private String email;
     private String password;
     private String token;
-    //Referencias a los dos campos del login activity
+    //Referencias a los campos del login activity
     private EditText get_email;
     private EditText get_password;
 
@@ -80,7 +80,6 @@ public class LoginActivity extends AppCompatActivity {
     public void processFinish(String output) {
         progressDialog.dismiss();
         Session s = new Session(this);
-        Log.e("TTTTTLOGIN: ", output);
         if (output.indexOf("Error") == -1) {
             //Guardar el ticket que nos han devuelto (si venimos de login) osea un if no existe en shared nada guardamos
             if (s.isEmpty()) {
