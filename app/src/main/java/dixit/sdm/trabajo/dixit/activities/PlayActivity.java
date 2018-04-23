@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import dixit.sdm.trabajo.dixit.Database.Score;
+import dixit.sdm.trabajo.dixit.Database.ScoreDatabase;
 import dixit.sdm.trabajo.dixit.R;
 import dixit.sdm.trabajo.dixit.helpers.CreateGameTask;
 import dixit.sdm.trabajo.dixit.helpers.JoinGameTask;
@@ -88,6 +90,12 @@ public class PlayActivity extends AppCompatActivity {
         }
 
         idPlayer = prefs.getString("username", null);
+        saveScore("2");
+        saveScore("1");
+        saveScore("3");
+        saveScore("4000");
+        saveScore("3999");
+
     }
 
 
@@ -134,6 +142,36 @@ public class PlayActivity extends AppCompatActivity {
         else {
             progressDialog.setMessage(getString(R.string.play_joiningGame));
             new JoinGameTask(this).execute(new String[]{"GET", BASE_URL + "joinGame.php?email=" + s.getEmail() + "&ticket=" + s.getTicket() + "&id=" + intr_id});
+        }
+    }
+
+    public void saveScore(String score) {
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String username = prefs.getString("username", "");
+        new AddScoreThread(username, Integer.parseInt(score)).start();
+
+        /*
+        NetworkInfo networkInfo = ((ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
+        if (networkInfo == null || !networkInfo.isConnected()) {
+            Toast.makeText(this, R.string.network_unreachable_play, Toast.LENGTH_LONG).show();
+            return;
+        }
+        new PublishScores().execute(new String[]{username, score, null, null});
+        */
+
+    }
+
+    private class AddScoreThread extends Thread {
+        private String name;
+        private int score;
+
+        AddScoreThread(String name, int score) {
+            this.name = name;
+            this.score = score;
+        }
+
+        public void run() {
+            ScoreDatabase.getInstance(PlayActivity.this).scoreDAO().addScore(new Score(this.name, this.score));
         }
     }
 
