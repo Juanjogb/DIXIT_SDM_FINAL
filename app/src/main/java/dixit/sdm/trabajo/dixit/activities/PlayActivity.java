@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import dixit.sdm.trabajo.dixit.Database.FriendScoreDatabase;
 import dixit.sdm.trabajo.dixit.Database.Score;
 import dixit.sdm.trabajo.dixit.Database.ScoreDatabase;
 import dixit.sdm.trabajo.dixit.R;
@@ -96,6 +97,13 @@ public class PlayActivity extends AppCompatActivity {
         saveScore("4000");
         saveScore("3999");
 
+
+        saveScoreFriends("Carlos","5000");
+        saveScoreFriends("Alberto" , "3000");
+        saveScoreFriends("Carlos","8000");
+        saveScoreFriends("Juanjo" , "2500");
+
+
     }
 
 
@@ -161,6 +169,22 @@ public class PlayActivity extends AppCompatActivity {
 
     }
 
+    public void saveScoreFriends(String username, String score) {
+        //prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        //String username = prefs.getString("username", "");
+        new AddFriendScoreThread(username, Integer.parseInt(score)).start();
+
+        /*
+        NetworkInfo networkInfo = ((ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
+        if (networkInfo == null || !networkInfo.isConnected()) {
+            Toast.makeText(this, R.string.network_unreachable_play, Toast.LENGTH_LONG).show();
+            return;
+        }
+        new PublishScores().execute(new String[]{username, score, null, null});
+        */
+
+    }
+
     private class AddScoreThread extends Thread {
         private String name;
         private int score;
@@ -172,6 +196,20 @@ public class PlayActivity extends AppCompatActivity {
 
         public void run() {
             ScoreDatabase.getInstance(PlayActivity.this).scoreDAO().addScore(new Score(this.name, this.score));
+        }
+    }
+
+    private class AddFriendScoreThread extends Thread {
+        private String name;
+        private int score;
+
+        AddFriendScoreThread(String name, int score) {
+            this.name = name;
+            this.score = score;
+        }
+
+        public void run() {
+            FriendScoreDatabase.getInstance(PlayActivity.this).scoreDAO().addScore(new Score(this.name, this.score));
         }
     }
 

@@ -15,6 +15,7 @@ import android.widget.Toast;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
+import dixit.sdm.trabajo.dixit.Database.FriendScoreDatabase;
 import dixit.sdm.trabajo.dixit.Database.Score;
 import dixit.sdm.trabajo.dixit.Database.ScoreDatabase;
 import dixit.sdm.trabajo.dixit.R;
@@ -24,6 +25,9 @@ public class ScoresActivity extends AppCompatActivity {
 
     ScoreAdapter localScoreAdapter;
     List<Score> localScoresList;
+
+    ScoreAdapter friendScoreAdapter;
+    List<Score> friendScoresList;
     SharedPreferences sharedPreferences = null;
 
     private class ClearScoreThread extends Thread {
@@ -33,6 +37,7 @@ public class ScoresActivity extends AppCompatActivity {
 
         public void run() {
             ScoreDatabase.getInstance(ScoresActivity.this).scoreDAO().clearScores();
+            FriendScoreDatabase.getInstance(ScoresActivity.this).scoreDAO().clearScores();
         }
     }
 
@@ -45,10 +50,30 @@ public class ScoresActivity extends AppCompatActivity {
 
         protected List<Score> doInBackground(Void... voids) {
             return ScoreDatabase.getInstance((Context) this.activity.get()).scoreDAO().getLocalScores();
+
         }
 
         protected void onPostExecute(List<Score> scores) {
             ((ScoresActivity) this.activity.get()).updateLocalScores(scores);
+            //((ScoresActivity) this.activity.get()).updateFriendScores(scores);
+        }
+
+    }
+    private static class FriendTask extends AsyncTask<Void, Void, List<Score>> {
+
+        private WeakReference<ScoresActivity> activity;
+        FriendTask(ScoresActivity activity) {
+            this.activity = new WeakReference(activity);
+        }
+
+        protected List<Score> doInBackground(Void... voids) {
+            return FriendScoreDatabase.getInstance((Context) this.activity.get()).scoreDAO().getLocalScores();
+
+        }
+
+        protected void onPostExecute(List<Score> scores) {
+            //((ScoresActivity) this.activity.get()).updateLocalScores(scores);
+            ((ScoresActivity) this.activity.get()).updateFriendScores(scores);
         }
 
     }
@@ -59,6 +84,14 @@ public class ScoresActivity extends AppCompatActivity {
         //Create Adapter
         localScoreAdapter = new ScoreAdapter(this, R.layout.score_list_row, localScoresList);
         ((ListView) findViewById(R.id.lvLocal)).setAdapter(localScoreAdapter);
+    }
+
+    private void updateFriendScores(List<Score> scores) {
+        friendScoresList = scores;
+
+        //Create Adapter
+        friendScoreAdapter = new ScoreAdapter(this, R.layout.score_list_row, friendScoresList);
+        ((ListView) findViewById(R.id.lvFriends)).setAdapter(friendScoreAdapter);
     }
 
     /*
@@ -155,6 +188,14 @@ public class ScoresActivity extends AppCompatActivity {
             Toast.makeText(this, "ERROR de red, no se ha podido instanciar la red", Toast.LENGTH_LONG).show();
         } else {
            // new ScoresTask(this).execute(new String[]{username, null, null});
+        }
+
+        new FriendTask(this).execute(new Void[0]);
+        NetworkInfo networkInformation = ((ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
+        if (networkInfo == null || !networkInformation.isConnected()) {
+            Toast.makeText(this, "ERROR de red, no se ha podido instanciar la red", Toast.LENGTH_LONG).show();
+        } else {
+            // new ScoresTask(this).execute(new String[]{username, null, null});
         }
 
     }
