@@ -3,12 +3,14 @@ package dixit.sdm.trabajo.dixit.helpers;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.LocalBroadcastManager;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
@@ -29,11 +31,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         int notificationId = new Random().nextInt(60000);
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, ADMIN_CHANNEL_ID).setSmallIcon(R.drawable.logo)
-                .setContentTitle(remoteMessage.getData().get("title"))
-                .setContentText(remoteMessage.getData().get("message"))
+                .setContentTitle(getString(R.string.app_name))
+                .setContentText(remoteMessage.getData().get("player") + " " + getString(R.string.play_newJoined))
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri);
         notificationManager.notify(notificationId, notificationBuilder.build());
+        Intent intent = new Intent("MSG");
+        intent.putExtra("type", remoteMessage.getData().get("type"));
+        intent.putExtra("data", remoteMessage.getData().get("player"));
+        (LocalBroadcastManager.getInstance(getBaseContext())).sendBroadcast(intent);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -50,4 +56,5 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             notificationManager.createNotificationChannel(adminChannel);
         }
     }
+
 }

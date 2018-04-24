@@ -22,7 +22,9 @@ public class BarajaActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
-        startActivity(new Intent(this, PlayActivity.class));
+        Intent i = new Intent(this, PlayActivity.class);
+        i.putExtra("tmp_searchGame",prefs.getString("tmp_searchGame",null));
+        startActivity(i);
         finish();
     }
 

@@ -5,6 +5,7 @@
     <string name="main_bScores">Puntuaciones</string>
     <string name="main_bRules">Reglas</string>
     <string name="main_bCards">Cartas</string>
+    <string name="main_bAbout">Sobre nosotros</string>
     <string name="settings_title">Configuración</string>
     <string name="login_email">Email</string>
     <string name="login_password">Contraseña</string>
@@ -41,6 +42,7 @@
     <string name="play_reverso">Seleccionar reverso</string>
     <string name="main_bExit">Salir</string>
     <string name="play_gameCreated">Partida creada</string>
+    <string name="play_newJoined">se ha unido a la partida</string>
     <string name="game_shareGame">Compartir partida</string>
     <string name="game_shareText">¡Únete a esta partida de Dixit! La ID es </string>
     <string name="game_shareSubject">Te invito a una partida de Dixit</string>
@@ -76,4 +78,10 @@
     <string name="rule1">"   Cada jugador comienza en la casilla 0 y con 6 cartas en su mano. El resto de los jugadores están en el mazo."</string>
     <string name="rule2">En cada turno se elegirá un narrador que elegirá una de las cartas de tu mano y escribirá una frase que tenga que ver con ella.</string>
     <string name="rule3">Los otros jugadores elegirán una carta de su mano que mejor se ajuste a la descripción del narrador. Luego votarán tratando de adivinar qué letra de todas las que creen que es la que tiene el narrador.</string>
+    <!-- About Activity -->
+
+    <string name="about"> Sobre nosotros</string>
+    <string name="nombres"> Somos un grupo de estudiantes de la asignatura de SDM formado por: \n\n - Alberto de Arévalo Vidarte \n - Carlos Herrera Piedra \n - Juan José Gonzalez Blesa \n - David Murillo Palacios </string>
+    <string name="info_partida">Información de la partida</string>
+    <string name="info_create">Esperando al resto de jugadores</string>
 </resources>

@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.iid.FirebaseInstanceId;
@@ -69,6 +70,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.bScores:
                 i.setClass(this, ScoresActivity.class);
                 break;
+            case R.id.bAbout:
+                i.setClass(this, AboutActivity.class);
+                break;
         }
         startActivity(i);
     }
@@ -101,5 +105,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
         finish();
+    }
+
+    public void processFinish(String a) {
+        Toast.makeText(this, "NMotif: " + a, Toast.LENGTH_SHORT).show();
     }
 }
